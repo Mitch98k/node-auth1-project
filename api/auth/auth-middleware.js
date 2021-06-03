@@ -28,6 +28,8 @@ function checkUsernameFree(req, res, next) {
   const user = Users.findBy({username});
   if (user) {
     res.status(422).json({ message: "Username taken" });
+  } else {
+    next();
   }
 }
 
